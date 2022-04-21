@@ -1,21 +1,27 @@
 header {
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
 }
 .book-content {
-    background-color: grey;
+ /*   background-color: grey;*/
     margin: 30px
 }
 .book-content > article {
+        background-color: C4C4C4;
         width: 100%;
         margin: 30px auto 0;
         display: flex;
-        justify-content: center
+        /*justify-content: center*/
+}
+.book-img, .book-text {
+  /*  background-color: aquamarine;*/
+    padding: 20px;
 }
 .book-img > img {
     height: 300px;
     flex: 10 10 200px; 
     margin: 10px;
     margin-bottom: 20px;
+    margin-right: 20px;
       /* 
           flex-grow: 0;
           flex-shrink: 0;

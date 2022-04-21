@@ -7,5 +7,7 @@
 			"path": "..\\anchor_project_web_page"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "anchor-book-fe"
+	}
 }

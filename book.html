@@ -10,21 +10,21 @@
             <section class = "book-content">
                 <article>
                     <div class = "book-img">
-                        <img src = "https://data.onnada.com/comic/201112/thumb_874548114_aeb9a102_ED94BCEC8AA4+01.jpg">
+                        <img id="book-image" src = "https://data.onnada.com/comic/201112/thumb_874548114_aeb9a102_ED94BCEC8AA4+01.jpg">
                     </div>
                     <div class = "book-text">
                         <h3>
                             원피스 1
                         </h3>
+                        <div class = "book-info">
                         작가: 오다 에이이치로<br>
                         출판사 : 대원<br>
                         가격 : 3780 원<br>
-                        <!--
+                        </div>
+                        
                         <a href = "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=13147317&copyPaper=1&ttbkey=ttbhelp1337001&partner=ttbhelp1337001&start=api">
                             알라딘 링크
                         </a>
-                    -->
-                        <button onclick='window.open("http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=13147317&copyPaper=1&ttbkey=ttbhelp1337001&partner=ttbhelp1337001&start=api")'>알라딘</button>
                         <button onclick =location.href='comment.html'>
                             댓글 추가
                         </button>
@@ -63,5 +63,6 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
         <script src="like.js"></script>
+        <script src="bookinfo.js"></script>
     </body>
 </html>
