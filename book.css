@@ -1,0 +1,85 @@
+header {
+    background-color: aqua;
+}
+.book-content {
+    background-color: grey;
+    margin: 30px
+}
+.book-content > article {
+        width: 100%;
+        margin: 30px auto 0;
+        display: flex;
+        justify-content: center
+}
+.book-img > img {
+    height: 300px;
+    flex: 10 10 200px; 
+    margin: 10px;
+    margin-bottom: 20px;
+      /* 
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: 450px;
+      */
+  }
+.comment, #instaform {
+    width: 100%;
+    max-width: 935px;
+    margin: 30px 30px 30px;
+    display: flex;
+    /*justify-content: center*/
+}
+.profile-img > img{
+    height: 50px;
+    flex: auto auto auto;
+    margin: 10px;
+}
+ul {
+    padding-left: 0%;
+}
+
+.button{
+	width: 10px;
+	height: 10px;
+  top:10px;
+  position: relative;
+  
+	left: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	border-radius: 5px;
+	
+  background: none;
+	cursor: pointer;
+	transition: background 0.5s ease;
+}
+.button:hover{
+
+}
+.active#heart:before,.active#heart:after{
+	background: red !important;
+}
+#heart {
+    width: 10px;
+    height: 10px;
+    transition: background 0.5s ease;
+}
+#heart:before,
+#heart:after {
+	transition: background 0.5s ease;
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 0;
+    width: 10px;
+    height: 16px;
+    background: dimgrey;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}
