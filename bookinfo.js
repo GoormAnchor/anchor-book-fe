@@ -19,7 +19,7 @@ async function exec(){
         img.src = text.book_image;
         console.log(img.src);
 
-        const title = bookContainer.querySelector("h3");
+        const title = bookContainer.querySelector("h2");
         title.innerText = text.name;
         console.log(title);
 
