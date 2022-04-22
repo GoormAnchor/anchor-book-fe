@@ -2,15 +2,15 @@
 let url = 'http://localhost:8080/api'
 
 
-function getBook(){
-    const response = fetch("http://localhost:8080/api/book/find/id?id=2");
+function getBook(id){
+    const response = fetch("http://localhost:8080/api/book/find/id?id="+id);
     return response.then(res => res.json());
 }
   
-async function exec(){
+async function exec(id){
     var text;
     try {
-        text = await getBook();
+        text = await getBook(id);
         console.log(text);
         /** inner text로 text 바꾸기 */
         const bookContainer = document.querySelector(".book-content");
@@ -45,4 +45,4 @@ async function exec(){
     }
 }
 
-exec();
+exec(2);
