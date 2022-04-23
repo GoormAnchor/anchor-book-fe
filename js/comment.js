@@ -15,7 +15,7 @@ instaForm.addEventListener("submit", async function (e) {
   // const usernameInput = instaForm.elements.username;
   var imgUrl = newComment.user.profileImageUrl;
   var created_at = newComment.created_at;
-  addComment(newComment.user.username, commentInput.value, imgUrl, created_at);
+  addComment(newComment.user.username, commentInput.value, imgUrl, created_at, newComment.id);
  // usernameInput.value = "";
   commentInput.value = "";
 
@@ -45,7 +45,7 @@ async function postComment(id, userseq, content){
 }
 
 /*댓글 생성(프론트)*/
-const addComment = (username, comment, profileImageUrl, created_at) => {
+const addComment = (username, comment, profileImageUrl, created_at, commentid) => {
   
   const divImg = document.createElement('div');
   divImg.className = "profile-img";
@@ -81,15 +81,38 @@ const addComment = (username, comment, profileImageUrl, created_at) => {
   
   newComment.append(divCommentView);
 
+  /*
   const heartTag = document.createElement("div");
   heartTag.className = "button";
   heartTag.id = "heart";
-  
-  newComment.append(heartTag);
+  */
+  const delTag = document.createElement("button");
+  delTag.className = "delButton";
+  delTag.append("x");
+  delTag.addEventListener('click', async () => {
+    //프론트 삭제
+    commentsContainer.removeChild(newComment);
+    //서버 삭제
+    console.log(commentid);
+    await deleteComment(commentid);
+  });
+  newComment.append(delTag);
+  newComment.id = commentid; //코멘트 id
   
   commentsContainer.prepend(newComment);
 
 };
+/*댓글 삭제(서버) */
+async function deleteComment(commentid){
+ 
+  const response = fetch("http://localhost:8080/api/comment/delete/"+commentid, {
+    method : "DELETE",
+  });
+  
+}
+
+
+
 /*조회*/
 function getCommentList(id){
   const response = fetch("http://localhost:8080/api/comment/find?bookId="+id);
@@ -118,7 +141,7 @@ async function execGetCommentList(id){
           
           /*댓글 리스트 html 생성 */
           //console.log(commentList[i]);
-          addComment(commentList[i].user.username, commentList[i].content, commentList[i].user.profileImageUrl, commentList[i].created_at);
+          addComment(commentList[i].user.username, commentList[i].content, commentList[i].user.profileImageUrl, commentList[i].created_at, commentList[i].id);
 
       }
   }
