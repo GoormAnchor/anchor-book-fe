@@ -6,10 +6,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <header class = "Anchor header">
+            Anchor header ,로그인
+            <a href = "login.html">
+                로그인
+            </a>
+        </header>
         <main class = "book page">
-            <header class = "Anchor header">
-                Anchor header ,로그인
-            </header>
             <section class = "book-content">
                 <article>
                     <div class = "book-img">
@@ -17,8 +20,12 @@
                     </div>
                     <div class = "book-text">
                         <h2>
-                            원피스 1
+                            원피스 
+                            <button id="bookmark">
+                                &#x2B50;
+                            </button>
                         </h2>
+                        
                         <div class = "book-info">
                         작가: 오다 에이이치로<br>
                         출판사 : 대원<br>
@@ -60,11 +67,20 @@
                         스포하지마세요 스포하지마세요 스포하지마세요 스포하지마세요  ㄴㄴㄴㄴㄴㄴㄴ
                     </div>
                 </div>
+                
+                <br>
+                <div class = "like-section">
+                    <button class = "like">
+                        &#128420;
+                    </button>
+                    <br>
+                    100
+                </div>
                 <!-- 좋아요 버튼
                 <div id='heart' class='button'></div>
                 <br>
                 -->
-                <button id="deleteButton">x</button>
+                <button id="deleteButton">&#x274C;</button>
             </div>
         </section>
         

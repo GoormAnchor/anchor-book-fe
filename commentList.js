@@ -1,7 +1,7 @@
 /* 책 id로 댓글 리스트 받아오기 */
 let url = 'http://localhost:8080/api'
 
-import {addComment} from './js/commentCreation.js'
+import {addComment} from './js/comment.js'
 
 function getCommentList(id){
     const response = fetch("http://localhost:8080/api/comment/find?bookId="+id);

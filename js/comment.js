@@ -2,6 +2,7 @@ const instaForm = document.querySelector("#instaForm");
 const commentsContainer = document.querySelector("#comments");
 var userseq = 1;
 var id = 1;
+/*댓글 추가 이벤트*/
 instaForm.addEventListener("submit", async function (e) {
   e.preventDefault();
   /*
@@ -11,7 +12,9 @@ instaForm.addEventListener("submit", async function (e) {
   var newComment;
   //json object
   newComment = await postComment(id, userseq, commentInput.value);
-
+  /**
+   * 코멘트 생성(프론트)
+   */
   // const usernameInput = instaForm.elements.username;
   var imgUrl = newComment.user.profileImageUrl;
   var created_at = newComment.created_at;
@@ -81,14 +84,32 @@ const addComment = (username, comment, profileImageUrl, created_at, commentid) =
   
   newComment.append(divCommentView);
 
+  //좋아요 버튼
+  const likeDiv = document.createElement('div');
+  likeDiv.className = "like-section";
+
+  const likeTag = document.createElement("button");
+  likeTag.className = "like"
+  likeTag.append("&#128420;");
+
+  likeDiv.append(likeTag);
+  likeDiv.append(brTag);
+  /**
+   * TODO : 좋아요 수 받아오기
+   */
+  //TODO: 좋아요
+  likeDiv.append(100)
+  newComment.append(likeDiv);
+
   /*
   const heartTag = document.createElement("div");
   heartTag.className = "button";
   heartTag.id = "heart";
   */
+  //삭제 버튼
   const delTag = document.createElement("button");
   delTag.className = "delButton";
-  delTag.append("x");
+  delTag.append('&#x274C;');
   delTag.addEventListener('click', async () => {
     //프론트 삭제
     commentsContainer.removeChild(newComment);
@@ -96,12 +117,14 @@ const addComment = (username, comment, profileImageUrl, created_at, commentid) =
     console.log(commentid);
     await deleteComment(commentid);
   });
+
   newComment.append(delTag);
   newComment.id = commentid; //코멘트 id
   
   commentsContainer.prepend(newComment);
 
 };
+
 /*댓글 삭제(서버) */
 async function deleteComment(commentid){
  
@@ -111,9 +134,7 @@ async function deleteComment(commentid){
   
 }
 
-
-
-/*조회*/
+/*댓글 리스트 조회(서버)*/
 function getCommentList(id){
   const response = fetch("http://localhost:8080/api/comment/find?bookId="+id);
   //console.log("response- commentlist");
