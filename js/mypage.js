@@ -36,7 +36,7 @@ async function execGetUserCommentList(userseq) {
 
       figureTag.append(figCaptionTag);
       /*클릭시 새 창 생성*/
-      figureTag.addEventListener();
+      figureTag.setAttribute("onclick", "document.location.href=`./book.html`");
 
       commentListView.append(figureTag);
     }
