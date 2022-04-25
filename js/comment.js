@@ -2,8 +2,10 @@ const instaForm = document.querySelector("#instaForm");
 const commentsContainer = document.querySelector("#comments");
 var userseq = 1;
 var id = 1;
+
 /*댓글 추가 이벤트*/
 instaForm.addEventListener("submit", async function (e) {
+  console.log("submit");
   e.preventDefault();
   /*
   post 코멘트 생성 요청 전송

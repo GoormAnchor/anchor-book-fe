@@ -24,9 +24,16 @@ body {
   display: flex;
   align-items: center;
 }
+/*
 #book-title > button {
-  margin-left: 10px;
   font-size: 18px;
+  padding: 10px;
+  border: none;
+  background-color: C4C4C4;
+}
+*/
+#book-title > h2 {
+  margin-right: 10px;
 }
 .book-img,
 .book-text {
