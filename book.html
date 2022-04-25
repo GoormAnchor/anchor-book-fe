@@ -11,7 +11,7 @@
   </head>
   <body>
     <header class="Anchor header">
-      <span>⚓</span>Anchor header ,로그인
+      <span>⚓<b>Anchor</b></span>
       <a href="login.html"> 로그인 </a>
     </header>
     <main class="book page">
@@ -42,16 +42,18 @@
             >
             <!--button onclick="location.href" ="comment.html">댓글 추가</button-->
             <br />
-            <div>
+            <p>
               <progress value="30" max="100" id="progress-bar"></progress>
               <b>20%</b>
-            </div>
+            </p>
           </div>
         </article>
       </section>
     </main>
     <section class="comment-list">
       댓글 리스트
+      <button class="sort selected">최신순</button>
+      <button class="sort">추천순</button>
       <form anction="comment.html" id="instaform">
         <input type="text" name="comment" placeholder="write comment.." />
         <button>📝</button>
@@ -89,7 +91,7 @@
     <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
     <script src="./js/like.js"></script>
     <script src="./js/bookinfo.js"></script>
-    <script src="./heart/heart.js"></script>
+    <script src="./js/heart.js"></script>
     <!--script type = "module" src="commentList.js"></script-->
   </body>
 </html>

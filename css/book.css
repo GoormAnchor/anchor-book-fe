@@ -1,13 +1,15 @@
 header {
-  background-color: rgb(117, 132, 232);
+  background-color: gray;
   margin: 0% 0% 0%;
-  padding: 0%;
+  padding-bottom: 5px;
 }
 header > span {
   font-size: 50px;
+  color: aliceblue;
 }
 body {
   font-family: "Noto Sans KR", sans-serif;
+  margin: 0px;
 }
 .book-content {
   /*   background-color: grey;*/
@@ -40,6 +42,9 @@ body {
   /*  background-color: aquamarine;*/
   padding: 20px;
 }
+.book-text {
+  width: 60%;
+}
 .book-img > img {
   height: 300px;
   flex: 10 10 200px;
@@ -53,7 +58,11 @@ body {
       */
 }
 .comment-list {
-  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.comment-list > button {
+  font-family: "Noto Sans KR", sans-serif;
 }
 .comment,
 #instaform {
@@ -83,7 +92,7 @@ body {
 
 /*진행 바*/
 #progress-bar {
-  width: 300px;
+  width: 80%;
 }
 .book-text > a {
   background-color: blueviolet;
