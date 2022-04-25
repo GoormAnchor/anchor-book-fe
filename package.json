@@ -20,8 +20,5 @@
   "homepage": "https://github.com/bbbb56146/anchor-book-fe#readme",
   "dependencies": {
     "express": "^4.17.3"
-  },
-  "activationEvents": [
-    "onCommand:daily-md.createDefault"
-]
+  }
 }

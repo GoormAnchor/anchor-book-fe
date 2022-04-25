@@ -1,96 +1,94 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="./css/book.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header class = "Anchor header">
-            Anchor header ,로그인
-            <a href = "login.html">
-                로그인
-            </a>
-        </header>
-        <main class = "book page">
-            <section class = "book-content">
-                <article>
-                    <div class = "book-img">
-                        <img id="book-image" src = "https://data.onnada.com/comic/201112/thumb_874548114_aeb9a102_ED94BCEC8AA4+01.jpg">
-                    </div>
-                    <div class = "book-text">
-                        <h2>
-                            원피스 
-                            <button id="bookmark">
-                                &#x2B50;
-                            </button>
-                        </h2>
-                        
-                        <div class = "book-info">
-                        작가: 오다 에이이치로<br>
-                        출판사 : 대원<br>
-                        가격 : 3780 원<br>
-                        </div>
-                        <br>
-                        <a href = "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=13147317&copyPaper=1&ttbkey=ttbhelp1337001&partner=ttbhelp1337001&start=api">
-                            알라딘 링크</a>
-                        <button onclick =location.href='comment.html'>
-                            댓글 추가
-                        </button>
-                        <br>
-                        <div>
-                        
-                            <progress value = 30 max = 100 id="progress-bar"></progress>
-                            <b>20%</b>                        
-                        </div>
-                    </div>
-                </article>
+  <head>
+    <link rel="stylesheet" href="./css/book.css" />
+    <link rel="stylesheet" href="./css/heart-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="Anchor header">
+      Anchor header ,로그인
+      <a href="login.html"> 로그인 </a>
+    </header>
+    <main class="book page">
+      <section class="book-content">
+        <article>
+          <div class="book-img">
+            <img
+              id="book-image"
+              src="https://data.onnada.com/comic/201112/thumb_874548114_aeb9a102_ED94BCEC8AA4+01.jpg"
+            />
+          </div>
+          <div class="book-text">
+            <h2>
+              원피스
+              <button id="bookmark">&#x2B50;</button>
+            </h2>
 
-            </section>
-        </main>
-        <section class= "comment-list">
-            댓글 리스트
-            <form anction="comment.html" id="instaform">
-                <input type="text" name="comment" placeholder="write comment.." />
-                <button>+</button>
-            </form>
-            <div id="comments"></div>
-            <div class = "comment">
-                <div class = "profile-img">
-                    <img src = "https://lh3.googleusercontent.com/a/AATXAJyL7DTh3BXTifLQPj2W_KotPWk2lLRoeKTIfU5l=s96-c">
-                </div>
-                <div class = "comment-view">
-                    <div class = "username">
-                       <strong> Seyeon</strong>
-                    </div>
-                    <div class = "comment-content">
-                        스포하지마세요 스포하지마세요 스포하지마세요 스포하지마세요  ㄴㄴㄴㄴㄴㄴㄴ
-                    </div>
-                </div>
-                
-                <br>
-                <div class = "like-section">
-                    <button class = "like">
-                        &#128420;
-                    </button>
-                    <br>
-                    100
-                </div>
-                <!-- 좋아요 버튼
-                <div id='heart' class='button'></div>
-                <br>
-                -->
-                <button id="deleteButton">&#x274C;</button>
+            <div class="book-info">
+              작가: 오다 에이이치로<br />
+              출판사 : 대원<br />
+              가격 : 3780 원<br />
             </div>
-        </section>
-        
-        <script src="./js/comment.js"></script>
-        <!--j쿼리-->
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
-        <script src="./js/like.js"></script>
-        <script src="./js/bookinfo.js"></script>
-        <!--script type = "module" src="commentList.js"></script-->
+            <br />
+            <a
+              href="http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=13147317&copyPaper=1&ttbkey=ttbhelp1337001&partner=ttbhelp1337001&start=api"
+            >
+              알라딘 링크</a
+            >
+            <button onclick="location.href" ="comment.html">댓글 추가</button>
+            <br />
+            <div>
+              <progress value="30" max="100" id="progress-bar"></progress>
+              <b>20%</b>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <section class="comment-list">
+      댓글 리스트
+      <form anction="comment.html" id="instaform">
+        <input type="text" name="comment" placeholder="write comment.." />
+        <button>+</button>
+      </form>
+      <div id="comments"></div>
+      <div class="comment">
+        <div class="profile-img">
+          <img
+            src="https://lh3.googleusercontent.com/a/AATXAJyL7DTh3BXTifLQPj2W_KotPWk2lLRoeKTIfU5l=s96-c"
+          />
+        </div>
+        <div class="comment-view">
+          <div class="username">
+            <strong> Seyeon</strong>
+          </div>
+          <div class="comment-content">
+            스포하지마세요 스포하지마세요 스포하지마세요 스포하지마세요
+            ㄴㄴㄴㄴㄴㄴㄴ
+          </div>
+        </div>
 
-    </body>
+        <br />
+        <div id="container">
+          <div class="heart-like-button"></div>
+          100
+        </div>
+        <button id="deleteButton">&#x274C;</button>
+      </div>
+    </section>
+
+    <script src="./js/comment.js"></script>
+    <!--j쿼리-->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+    <script src="./js/like.js"></script>
+    <script src="./js/bookinfo.js"></script>
+    <!--script src="./heart/heart.js"></script-->
+    <!--script type = "module" src="commentList.js"></script-->
+  </body>
 </html>

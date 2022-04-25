@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>mypage</title>
+    <style>
+      #columns {
+        column-width: 150px;
+        column-gap: 15px;
+        display: flex;
+        margin-left: 200px;
+        margin-right: 200px;
+      }
+      #columns figure {
+        display: inline-block;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        margin: 0;
+        margin-bottom: 15px;
+
+        padding: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+      #columns figure img {
+        width: 100%;
+      }
+      #columns figure figcaption {
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        margin-top: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="Anchor header">
+      Anchor header ,로그인
+      <a href="login.html"> 로그인 </a>
+    </header>
+    <div id="user-info"></div>
+    <hr />
+    <div id="columns"></div>
+    <script src="./js/userinfo.js"></script>
+    <script src="./js/mypage.js"></script>
+  </body>
+</html>
