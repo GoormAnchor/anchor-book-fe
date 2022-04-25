@@ -22,7 +22,7 @@ async function execGetUserCommentList(userseq) {
       const figureTag = document.createElement("figure");
 
       const dateTag = document.createElement("div");
-      dateTag.append(commentList[i].created_at);
+      dateTag.append(commentList[i].created_at.split("T")[0]);
 
       const figCaptionTag = document.createElement("figcaption");
       figCaptionTag.append(commentList[i].content);
