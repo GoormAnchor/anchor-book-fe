@@ -11,7 +11,7 @@
   </head>
   <body>
     <header class="Anchor header">
-      Anchor header ,로그인
+      <span>⚓</span>Anchor header ,로그인
       <a href="login.html"> 로그인 </a>
     </header>
     <main class="book page">
@@ -24,11 +24,10 @@
             />
           </div>
           <div class="book-text">
-            <h2>
-              원피스
-              <button id="bookmark">&#x2B50;</button>
-            </h2>
-
+            <div id="book-title">
+              <h2>원피스</h2>
+              <button>📌</button>
+            </div>
             <div class="book-info">
               작가: 오다 에이이치로<br />
               출판사 : 대원<br />
@@ -40,7 +39,7 @@
             >
               알라딘 링크</a
             >
-            <button onclick="location.href" ="comment.html">댓글 추가</button>
+            <!--button onclick="location.href" ="comment.html">댓글 추가</button-->
             <br />
             <div>
               <progress value="30" max="100" id="progress-bar"></progress>
@@ -54,7 +53,7 @@
       댓글 리스트
       <form anction="comment.html" id="instaform">
         <input type="text" name="comment" placeholder="write comment.." />
-        <button>+</button>
+        <button>📝</button>
       </form>
       <div id="comments"></div>
       <div class="comment">
