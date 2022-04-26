@@ -2,7 +2,7 @@ var userseq = 1;
 /*댓글 리스트 조회(서버)*/
 function getUserCommentList(id) {
   const response = fetch(
-    "http://localhost:8080/api/comment/find/userseq?userSeq=" + id
+    "http://localhost:9090/api/comment/find/userseq?userSeq=" + id
   );
   //console.log("response- commentlist");
   return response.then((res) => res.json());

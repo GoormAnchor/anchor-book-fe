@@ -39,7 +39,7 @@ async function postComment(id, userseq, content) {
   data.content = content;
   data.book_id = id;
 
-  const response = fetch("http://localhost:8080/api/comment/createComment", {
+  const response = fetch("http://localhost:9090/api/comment/createComment", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -162,7 +162,7 @@ const addComment = (
 /*댓글 삭제(서버) */
 async function deleteComment(commentid) {
   const response = fetch(
-    "http://localhost:8080/api/comment/delete/" + commentid,
+    "http://localhost:9090/api/comment/delete/" + commentid,
     {
       method: "DELETE",
     }
@@ -171,7 +171,7 @@ async function deleteComment(commentid) {
 
 /*댓글 리스트 조회(서버)*/
 function getCommentList(id) {
-  const response = fetch("http://localhost:8080/api/comment/find?bookId=" + id);
+  const response = fetch("http://localhost:9090/api/comment/find?bookId=" + id);
   //console.log("response- commentlist");
   //json 배열인데 제대로 될지 모르겠음
   return response.then((res) => res.json());
