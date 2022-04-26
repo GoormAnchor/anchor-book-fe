@@ -1,4 +1,10 @@
-var userseq = 1;
+console.log(location.href);
+
+temp = location.href.split("?");
+data = temp[1].split("=");
+userseq = data[1];
+
+//var userseq = 1;
 /*댓글 리스트 조회(서버)*/
 function getUserCommentList(id) {
   const response = fetch(
@@ -28,11 +34,20 @@ async function execGetUserCommentList(userseq) {
       figCaptionTag.append(commentList[i].content);
 
       figCaptionTag.append(dateTag);
+      const aTag = document.createElement("a");
 
+      console.log(
+        "./book.html?userSeq=" + userseq + "&bookId=" + commentList[i].book.id
+      );
+      //책링크 추가
+      aTag.href =
+        "book.html?userSeq=" + userseq + "&bookId=" + commentList[i].book.id;
       const imgTag = document.createElement("img");
       imgTag.src = commentList[i].book.book_image;
 
-      figureTag.append(imgTag);
+      aTag.append(imgTag);
+
+      figureTag.append(aTag);
 
       figureTag.append(figCaptionTag);
       /*클릭시 새 창 생성*/

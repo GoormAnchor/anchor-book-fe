@@ -41,4 +41,13 @@ async function exec(id) {
   }
 }
 
-exec(2);
+console.log(location.href);
+
+console.log(location.href);
+
+temp = location.href.split("?");
+querys = temp[1].split("&");
+var userseq = querys[0].split("=")[1];
+var bookId = querys[1].split("=")[1];
+
+exec(bookId);

@@ -1,7 +1,12 @@
 const button = document.querySelector(".heart-like-button");
-var bookid = 1;
+
+console.log(location.href);
+
+temp = location.href.split("?");
+querys = temp[1].split("&");
+var userseq = querys[0].split("=")[1];
+var bookid = querys[1].split("=")[1];
 var episodeid = null;
-var userseq = 1;
 
 button.addEventListener("click", async () => {
   var response;
@@ -15,7 +20,7 @@ button.addEventListener("click", async () => {
   }
 });
 
-/*댓글 삭제(서버) */
+/*북마크 삭제(서버) */
 async function deleteBookmark(commentid) {
   const response = fetch(
     "http://localhost:9090/api/comment/delete/" + commentid,
@@ -25,7 +30,7 @@ async function deleteBookmark(commentid) {
   );
 }
 
-/*댓글 생성(서버)*/
+/*북마크 생성(서버)*/
 async function postBookmark(id, userseq) {
   const response = fetch("http://localhost:9090/api/comment/createComment", {
     method: "POST",

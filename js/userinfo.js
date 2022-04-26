@@ -1,4 +1,9 @@
-var userseq = 1;
+console.log(location.href);
+
+temp = location.href.split("?");
+data = temp[1].split("=");
+userseq = data[1];
+
 /*댓글 리스트 조회(서버)*/
 function getUserInfo(userseq) {
   const response = fetch(
