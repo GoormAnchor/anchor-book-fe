@@ -56,7 +56,10 @@ async function execGetUserBookList(userseq) {
 
       figureTag.append(figCaptionTag);
       /*클릭시 새 창 생성*/
-      figureTag.setAttribute("onclick", "document.location.href=`./book.html`");
+      // figureTag.setAttribute(
+      //   "onclick",
+      //   `document.location.href=./book.html?userSeq=${userseq}&bookId=${bookList[i].id}`
+      // );
 
       bookListView.append(figureTag);
     }
