@@ -58,7 +58,7 @@ async function execGetUserBookList(userseq) {
       /*클릭시 새 창 생성*/
       figureTag.setAttribute("onclick", "document.location.href=`./book.html`");
 
-      commentListView.append(figureTag);
+      bookListView.append(figureTag);
     }
   } catch (error) {
     console.log(error);
