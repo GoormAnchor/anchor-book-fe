@@ -47,3 +47,14 @@
 1. VSCode에서 live-server 확장 설치
 2. 아래 파란줄 오늘쪽에 "Go Live" 클릭
 3. localhost:5500으로 접속
+
+---
+
+## Docker image 만들기 & 컨테이너 실행
+
+```bash
+docker build -t sydsh19/anchor-nginx:[태그명] .
+docker run --name some-nginx -d -p 3000:80 sydsh19/anchor-nginx
+```
+
+anchor-nginx 이미지로 nginx 서버가 실행된다.
