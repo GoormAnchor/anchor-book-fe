@@ -20,7 +20,9 @@ async function execGetUserBookList(userseq) {
     bookList = await getUserBookList(userseq);
 
     const userInfoContainer = document.querySelector("#user-info");
-    userInfoContainer.append("내 서재");
+    userInfoContainer.append(
+      `내 서재. 지금까지 ${bookList.length}권을 읽으셨어요!`
+    );
 
     const bookListView = document.querySelector("#columns");
     for (var i in bookList) {
