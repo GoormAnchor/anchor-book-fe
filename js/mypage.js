@@ -5,49 +5,52 @@ data = temp[1].split("=");
 userseq = data[1];
 
 //var userseq = 1;
-/*댓글 리스트 조회(서버)*/
-function getUserCommentList(id) {
+/*책 리스트 조회(서버)*/
+function getUserBookList(id) {
   const response = fetch(
-    "http://localhost:9090/api/comment/find/userseq?userSeq=" + id
+    "http://localhost:9090/api/book/commentedBook?userSeq=" + id
   );
   //console.log("response- commentlist");
   return response.then((res) => res.json());
 }
 
-async function execGetUserCommentList(userseq) {
-  var commentList;
+async function execGetUserBookList(userseq) {
+  var bookList;
   try {
-    commentList = await getUserCommentList(userseq);
+    bookList = await getUserBookList(userseq);
 
     const userInfoContainer = document.querySelector("#user-info");
-    userInfoContainer.append(`총 ${commentList.length}개의 댓글을 작성했어요.`);
+    userInfoContainer.append("내 서재");
 
-    const commentListView = document.querySelector("#columns");
-    for (var i in commentList) {
+    const bookListView = document.querySelector("#columns");
+    for (var i in bookList) {
       /*html 생성하기 */
       const figureTag = document.createElement("figure");
-
+      /*
       const dateTag = document.createElement("div");
-      dateTag.append(commentList[i].created_at.split("T")[0]);
+      dateTag.append(bookList[i].created_at.split("T")[0]);
 
       const figCaptionTag = document.createElement("figcaption");
       figCaptionTag.append(commentList[i].content);
 
       figCaptionTag.append(dateTag);
+      */
       const aTag = document.createElement("a");
 
       console.log(
-        "./book.html?userSeq=" + userseq + "&bookId=" + commentList[i].book.id
+        "./book.html?userSeq=" + userseq + "&bookId=" + bookList[i].id
       );
       //책링크 추가
-      aTag.href =
-        "book.html?userSeq=" + userseq + "&bookId=" + commentList[i].book.id;
+      aTag.href = "book.html?userSeq=" + userseq + "&bookId=" + bookList[i].id;
       const imgTag = document.createElement("img");
-      imgTag.src = commentList[i].book.book_image;
+      imgTag.src = bookList[i].book_image;
 
       aTag.append(imgTag);
 
       figureTag.append(aTag);
+
+      const figCaptionTag = document.createElement("figcaption");
+      figCaptionTag.append(bookList[i].name);
 
       figureTag.append(figCaptionTag);
       /*클릭시 새 창 생성*/
@@ -60,4 +63,4 @@ async function execGetUserCommentList(userseq) {
   }
 }
 
-execGetUserCommentList(userseq);
+execGetUserBookList(userseq);
