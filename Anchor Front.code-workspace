@@ -1,14 +1,14 @@
 {
   "folders": [
     {
-      "path": "..\\anchor_project_web_page"
+      "path": "..\\..\\..\\k8s"
     },
     {
-      "path": "..\\..\\..\\k8s"
+      "path": "."
     }
   ],
   "settings": {
-    "liveServer.settings.multiRootWorkspaceName": "anchor-book-fe",
+    "liveServer.settings.multiRootWorkspaceName": "anchor_project_web_page",
     "daily-md.defaultNotePath": "~/2022/study/anchor-book-fe/daily"
   }
 }
