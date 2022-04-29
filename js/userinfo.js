@@ -22,7 +22,7 @@ async function execGetUserInfo(userseq) {
 
     /*html 작성*/
     var h1Tag = document.createElement("h1");
-    h1Tag.append(`${userInfo.username}님, 반가워요!`);
+    h1Tag.prepend(`${userInfo.username}님, 반가워요!`);
 
     userInfoContainer.prepend(h1Tag);
   } catch (error) {

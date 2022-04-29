@@ -1,0 +1,14 @@
+header {
+  background-color: gray;
+  margin: 0% 0% 0%;
+  padding-bottom: 5px;
+}
+header > a {
+  font-size: 50px;
+  color: aliceblue;
+  text-decoration-line: none;
+}
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0px;
+}

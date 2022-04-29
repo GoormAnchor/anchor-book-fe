@@ -1,26 +1,39 @@
-console.log(location.href);
+const instaForm = document.querySelector("#instaForm");
+const serchResult = document.querySelector("#search-result");
+instaForm.addEventListener("submit", async function (e) {
+  console.log("submit");
+  e.preventDefault();
+  /**
+   * 이전 책 결과 삭제
+   */
+  serchResult.innerHTML("");
+  /*
+    검색 요청 전송
+    */
+  const wordInput = instaForm.elements.word;
+  //json object
+  execGetSearchBookList(word);
+  /**
+   * 결과로 책 생성
+   */
+  wordInput.value = "";
+});
 
-temp = location.href.split("?");
-data = temp[1].split("=");
-userseq = data[1];
-
-//var userseq = 1;
 /*책 리스트 조회(서버)*/
-function getUserBookList(id) {
+function getSearchBookList(word) {
   const response = fetch(
-    "http://localhost:9090/api/book/commentedBook?userSeq=" + id
+    "http://localhost:9090/api/book/find/name?containWord=" + word
   );
   //console.log("response- commentlist");
   return response.then((res) => res.json());
 }
 
-async function execGetUserBookList(userseq) {
+async function execGetSearchBookList(word) {
   var bookList;
   try {
-    bookList = await getUserBookList(userseq);
+    bookList = await getSearchBookList(word);
 
-    const userInfoContainer = document.querySelector("#library-info");
-    userInfoContainer.append(`지금까지 ${bookList.length}권을 읽으셨어요!`);
+    const searchBookContainer = document.querySelector("#search-book");
 
     const bookListView = document.querySelector("#columns");
     for (var i in bookList) {
@@ -65,5 +78,3 @@ async function execGetUserBookList(userseq) {
     console.log(error);
   }
 }
-
-execGetUserBookList(userseq);
