@@ -1,18 +1,25 @@
-const instaForm = document.querySelector("#instaForm");
+const instaForm = document.querySelector("#instaform");
 const serchResult = document.querySelector("#search-result");
+
+console.log(location.href);
+
+temp = location.href.split("?");
+data = temp[1].split("=");
+userseq = data[1];
+
 instaForm.addEventListener("submit", async function (e) {
   console.log("submit");
   e.preventDefault();
   /**
    * 이전 책 결과 삭제
    */
-  serchResult.innerHTML("");
+  serchResult.innerHTML = "";
   /*
     검색 요청 전송
     */
   const wordInput = instaForm.elements.word;
   //json object
-  execGetSearchBookList(word);
+  execGetSearchBookList(wordInput.value);
   /**
    * 결과로 책 생성
    */
@@ -33,21 +40,16 @@ async function execGetSearchBookList(word) {
   try {
     bookList = await getSearchBookList(word);
 
-    const searchBookContainer = document.querySelector("#search-book");
-
-    const bookListView = document.querySelector("#columns");
+    const searchBookContainer = document.querySelector("#search-result");
+    /**
+     * column div 생성하기
+     */
+    const bookListView = document.createElement("div");
+    bookListView.id = "columns";
     for (var i in bookList) {
       /*html 생성하기 */
       const figureTag = document.createElement("figure");
-      /*
-      const dateTag = document.createElement("div");
-      dateTag.append(bookList[i].created_at.split("T")[0]);
 
-      const figCaptionTag = document.createElement("figcaption");
-      figCaptionTag.append(commentList[i].content);
-
-      figCaptionTag.append(dateTag);
-      */
       const aTag = document.createElement("a");
 
       console.log(
@@ -66,14 +68,10 @@ async function execGetSearchBookList(word) {
       figCaptionTag.append(bookList[i].name);
 
       figureTag.append(figCaptionTag);
-      /*클릭시 새 창 생성*/
-      // figureTag.setAttribute(
-      //   "onclick",
-      //   `document.location.href=./book.html?userSeq=${userseq}&bookId=${bookList[i].id}`
-      // );
 
       bookListView.append(figureTag);
     }
+    searchBookContainer.append(bookListView);
   } catch (error) {
     console.log(error);
   }

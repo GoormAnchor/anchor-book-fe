@@ -22,7 +22,7 @@ async function execGetUserBookList(userseq) {
     const userInfoContainer = document.querySelector("#library-info");
     userInfoContainer.append(`지금까지 ${bookList.length}권을 읽으셨어요!`);
 
-    const bookListView = document.querySelector("#columns");
+    const bookListView = document.querySelector(".mylib");
     for (var i in bookList) {
       /*html 생성하기 */
       const figureTag = document.createElement("figure");
