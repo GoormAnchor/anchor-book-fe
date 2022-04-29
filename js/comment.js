@@ -123,6 +123,7 @@ const addComment = (
     //프론트
     if (likeTag.classList.contains("liked")) {
       likeTag.classList.remove("liked");
+      //좋아요 요청해야함
       likes = likes - 1;
     } else {
       likeTag.classList.add("liked");
