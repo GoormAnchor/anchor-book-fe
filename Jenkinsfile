@@ -12,7 +12,7 @@ pipeline {
         stage('Prepare') {
             steps {
                 echo 'Clonning Repository'
-                git url:'https://github.com/GoormAnchor/anchor-book-fe', branch:'master', credentialsId: 'anchor-repo-credentials';
+                git url:'https://github.com/GoormAnchor/anchor-book-fe', branch:'Seyeon', credentialsId: 'anchor-repo-credentials';
             }
             post {
                 success {
