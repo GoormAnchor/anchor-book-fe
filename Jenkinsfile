@@ -29,7 +29,6 @@ pipeline {
             steps {
                 echo 'Bulid Docker'
                 sh "docker build . -t 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
-                sh "docker build . -t 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
             }
             post {
                 failure {
@@ -45,7 +44,6 @@ pipeline {
                 script {
                     docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/anchor-book-be', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
                         dockerImage.push("${currentBuild.number}")
-                        dockerImage.push("latest")
                     }
                 }
 
@@ -64,7 +62,7 @@ pipeline {
                     url: 'https://github.com/GoormAnchor/anchor-k8s-deploy',
                     branch: 'main'
 
-                sh "sed -i 's/my-app:.*\$/my-app:${currentBuild.number}/g' deployment.yaml"
+                sh "sed -i 'custom-nginx:.*\$/my-app:${currentBuild.number}/g' deployment.yaml"
                 sh "git add custom-nginx.yaml"
                 sh "git commit -m 'UPDATE custom-nginx ${currentBuild.number} image versioning'"
                 sshagent(credentials: ['anchor-repo-credentials']) {
@@ -75,9 +73,6 @@ pipeline {
             post {
                 failure {
                   echo 'K8S Manifest Update failure !'
-                }
-                success {
-                    echo 'K8S Manifest Update success !'
                 }
             }
         }
