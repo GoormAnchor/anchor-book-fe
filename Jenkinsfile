@@ -42,9 +42,11 @@ pipeline {
         stage('Push Docker') {
             steps {
                 echo 'Push Docker'
-                withDockerRegistry([ credentialsId: registryCredential, url: "438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx" ]) {
-                    sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
-                    sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
+                script {
+                    docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/anchor-book-be', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
+                        sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
+                        sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
+                    }
                 }
             }
             post {
