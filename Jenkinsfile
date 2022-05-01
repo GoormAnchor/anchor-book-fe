@@ -43,7 +43,7 @@ pipeline {
             steps {
                 echo 'Push Docker'
                 script {
-                    docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/anchor-book-be', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
+                    docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
                         sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
                         sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
                     }
