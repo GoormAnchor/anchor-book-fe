@@ -59,7 +59,7 @@ pipeline {
         // k8s manifest update
         stage('K8S Manifest Update') {
             steps {
-                git url: 'https://github.com/GoormAnchor/anchor-k8s-deploy', branch: 'main', credentialsId: 'anchor-repo-credentials'
+                git url: 'git@github.com:GoormAnchor/anchor-k8s-deploy.git', branch: 'main', credentialsId: 'anchor-repo-credentials'
 
                 sh "sed -i 's/custom-nginx:.*\$/custom-nginx:${currentBuild.number}/g' custom-nginx.yaml"
                 sh "git add custom-nginx.yaml"
