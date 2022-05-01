@@ -1,11 +1,13 @@
 header {
-  background-color: gray;
+  background-color: #95c2b7;
   margin: 0% 0% 0%;
   padding-bottom: 5px;
 }
 header > a {
   font-size: 50px;
-  color: aliceblue;
+  font-family: "Black Han Sans", sans-serif;
+  color: black;
+  letter-spacing: -1px;
   text-decoration-line: none;
 }
 body {
