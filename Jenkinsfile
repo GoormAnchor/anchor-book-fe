@@ -64,7 +64,6 @@ pipeline {
                 sh "sed -i 's/custom-nginx:.*\$/custom-nginx:${currentBuild.number}/g' custom-nginx.yaml"
                 sh "git add custom-nginx.yaml"
                 sh "git commit -m 'UPDATE custom-nginx ${currentBuild.number} image versioning'"
-                sh "git remote set-url origin git@github.com:GoormAnchor/anchor-k8s-deploy.git"
                 sh "git push -u origin main"
             }
             post {
