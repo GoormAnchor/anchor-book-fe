@@ -27,8 +27,8 @@ pipeline {
         // docker build
         stage('Bulid Docker') {
             steps {
-                sh "docker build . -t https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
-                sh "docker build . -t https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
+                sh "docker build . -t 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
+                sh "docker build . -t 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
             }
             post {
                 failure {
@@ -41,7 +41,10 @@ pipeline {
         stage('Push Docker') {
             steps {
                 script {
-                    docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
+                    docker.withRegistry('438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
+                        dockerImage.push("${currentBuild.number}")
+                    }
+                    docker.withRegistry('438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
                         dockerImage.push("latest")
                     }
                 }
