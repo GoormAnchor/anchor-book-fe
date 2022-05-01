@@ -59,7 +59,7 @@ pipeline {
         // k8s manifest update
         stage('K8S Manifest Update') {
             steps {
-                git credentialsId: registryCredential,
+                git credentialsId: 'anchor-repo-credentials',
                     url: 'https://github.com/GoormAnchor/anchor-k8s-deploy',
                     branch: 'main'
 
