@@ -42,12 +42,10 @@ pipeline {
         stage('Push Docker') {
             steps {
                 echo 'Push Docker'
-                script {
-                    withDockerRegistry([ credentialsId: registryCredential, url: "" ]) {
-                        sh "docker push $438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
-                        sh "docker push $438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
+                withDockerRegistry([ credentialsId: registryCredential, url: "" ]) {
+                    sh "docker push $438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
+                    sh "docker push $438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
                 }
-
             }
             post {
                 failure {
