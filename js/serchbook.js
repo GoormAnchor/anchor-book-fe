@@ -29,7 +29,7 @@ instaForm.addEventListener("submit", async function (e) {
 /*책 리스트 조회(서버)*/
 function getSearchBookList(word) {
   const response = fetch(
-    "http://10.100.2.80:9090/api/book/find/name?containWord=" + word
+    "http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/book/find/name?containWord=" + word
   );
   //console.log("response- commentlist");
   return response.then((res) => res.json());
