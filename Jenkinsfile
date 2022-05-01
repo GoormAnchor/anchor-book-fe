@@ -65,8 +65,8 @@ pipeline {
                 sh "git add custom-nginx.yaml"
                 sh "git commit -m 'UPDATE custom-nginx ${currentBuild.number} image versioning'"
                 sshagent(credentials: ['anchor-repo-credentials']) {
-                    sh "git remote set-url origin git@github.com:GoormAnchor/anchor-k8s-deploy.git"
-                    sh "git push -u origin main"
+                    sh "git remote add origin git@github.com:GoormAnchor/anchor-k8s-deploy.git"
+                    sh "git push origin main"
                 }
             }
             post {
