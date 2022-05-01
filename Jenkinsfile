@@ -67,7 +67,6 @@ pipeline {
                 sh "git remote set-url origin git@github.com:GoormAnchor/anchor-k8s-deploy.git"
                 sh "git push -u origin main"
             }
-        }
             post {
                 failure {
                   echo 'K8S Manifest Update failure !'
