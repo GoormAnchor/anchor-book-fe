@@ -27,6 +27,7 @@ pipeline {
         // docker build
         stage('Bulid Docker') {
             steps {
+                echo 'Bulid Docker'
                 sh "docker build . -t 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
                 sh "docker build . -t 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
             }
@@ -40,12 +41,12 @@ pipeline {
         // docker push
         stage('Push Docker') {
             steps {
-                script {
-                    docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/anchor-book-be', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
-                        dockerImage.push("${currentBuild.number}")
-                        dockerImage.push("latest")
-                    }
+                echo 'Push Docker'
+                docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/anchor-book-be', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
+                     dockerImage.push("${currentBuild.number}")
+                    dockerImage.push("latest")
                 }
+
             }
             post {
                 failure {
