@@ -5,10 +5,14 @@
     },
     {
       "path": "..\\..\\..\\k8s"
+    },
+    {
+      "path": "..\\anchor-k8s-deploy"
     }
   ],
   "settings": {
     "liveServer.settings.multiRootWorkspaceName": "anchor-book-fe",
+
     "daily-md.defaultNotePath": "~/2022/study/anchor-book-fe/daily"
   }
 }

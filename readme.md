@@ -8,7 +8,9 @@
 
 마이페이지(유저가 작성한 코멘트 확인)
 
-## login.html
+## index.html
+
+**_nginx 브랜치는 login.html ➡ index.html로 변경_**
 
 소셜 로그인 페이지
 

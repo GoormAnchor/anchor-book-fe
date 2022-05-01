@@ -8,7 +8,8 @@ userseq = data[1];
 /*책 리스트 조회(서버)*/
 function getUserBookList(id) {
   const response = fetch(
-    "http://localhost:9090/api/book/commentedBook?userSeq=" + id
+    "http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/book/commentedBook?userSeq=" +
+      id
   );
   //console.log("response- commentlist");
   return response.then((res) => res.json());
