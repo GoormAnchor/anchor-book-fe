@@ -32,7 +32,7 @@ async function deleteBookmark(commentid) {
 
 /*북마크 생성(서버)*/
 async function postBookmark(id, userseq) {
-  const response = fetch("http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/comment/createComment", {
+  const response = fetch("http://10.100.2.80:9090/api/comment/createComment", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

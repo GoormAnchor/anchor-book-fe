@@ -7,7 +7,7 @@ userseq = data[1];
 /*댓글 리스트 조회(서버)*/
 function getUserInfo(userseq) {
   const response = fetch(
-    "http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/user/userinfo?userSeq=" + userseq
+    "http://10.100.2.80:9090/api/user/userinfo?userSeq=" + userseq
   );
   //console.log("response- commentlist");
   return response.then((res) => res.json());
