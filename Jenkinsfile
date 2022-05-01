@@ -54,5 +54,28 @@ pipeline {
                 }   
             }
         }
+
+        // k8s manifest update
+         stage('K8S Manifest Update') {
+        steps {
+            git credentialsId: '{Credential ID}',
+                url: 'https://github.com/best-branch/k8s-manifest.git',
+                branch: 'master'
+
+            sh "sed -i 's/my-app:.*\$/my-app:${currentBuild.number}/g' deployment.yaml"
+            sh "git add deployment.yaml"
+            sh "git commit -m '[UPDATE] my-app ${currentBuild.number} image versioning'"
+            sshagent(credentials: ['{k8s-manifest repository credential ID}']) {
+                sh "git remote set-url origin git@github.com:best-branch/k8s-manifest.git"
+                sh "git push -u origin master"
+             }
+        }
+        post {
+                failure {
+                  echo 'K8S Manifest Update failure !'
+                }
+                success {
+                  echo 'K8S Manifest Update success !'
+                }
     }
 }
