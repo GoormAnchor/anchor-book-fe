@@ -6,7 +6,8 @@ header {
 header > a {
   font-size: 50px;
   font-family: "Black Han Sans", sans-serif;
-  color: aliceblue;
+  color: black;
+  letter-spacing: -1px;
   text-decoration-line: none;
 }
 body {
