@@ -1,8 +1,6 @@
 /* fetch로 책 정보 받아오기 */
-let url = "http://localhost:8080/api";
-
 function getBook(id) {
-  const response = fetch("http://localhost:9090/api/book/find/id?id=" + id);
+  const response = fetch("http://10.100.2.80:9090/api/book/find/id?id=" + id);
   return response.then((res) => res.json());
 }
 

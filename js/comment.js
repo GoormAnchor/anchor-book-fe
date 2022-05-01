@@ -44,7 +44,7 @@ async function postComment(id, userseq, content) {
   data.content = content;
   data.book_id = id;
 
-  const response = fetch("http://localhost:9090/api/comment/createComment", {
+  const response = fetch("http://10.100.2.80:9090/api/comment/createComment", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -123,6 +123,7 @@ const addComment = (
     //프론트
     if (likeTag.classList.contains("liked")) {
       likeTag.classList.remove("liked");
+      //좋아요 요청해야함
       likes = likes - 1;
     } else {
       likeTag.classList.add("liked");
@@ -167,7 +168,7 @@ const addComment = (
 /*댓글 삭제(서버) */
 async function deleteComment(commentid) {
   const response = fetch(
-    "http://localhost:9090/api/comment/delete/" + commentid,
+    "http://10.100.2.80:9090/api/comment/delete/" + commentid,
     {
       method: "DELETE",
     }
@@ -176,7 +177,7 @@ async function deleteComment(commentid) {
 
 /*댓글 리스트 조회(서버)*/
 function getCommentList(id) {
-  const response = fetch("http://localhost:9090/api/comment/find?bookId=" + id);
+  const response = fetch("http://10.100.2.80:9090/api/comment/find?bookId=" + id);
   //console.log("response- commentlist");
   //json 배열인데 제대로 될지 모르겠음
   return response.then((res) => res.json());

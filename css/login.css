@@ -1,0 +1,32 @@
+body > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+body > div > a {
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  margin: 20px;
+  display: inline-block;
+  border-radius: 10px;
+  transition: all 0.1s;
+}
+.facebook {
+  background-color: #3b5998;
+}
+.naver {
+  background-color: #2db400;
+}
+.google {
+  background-color: rgb(226, 0, 0);
+}
+.kakao {
+  background-color: #f7e600;
+  color: black;
+}

@@ -23,7 +23,7 @@ button.addEventListener("click", async () => {
 /*북마크 삭제(서버) */
 async function deleteBookmark(commentid) {
   const response = fetch(
-    "http://localhost:9090/api/comment/delete/" + commentid,
+    "http://10.100.2.80/api/comment/delete/" + commentid,
     {
       method: "DELETE",
     }
@@ -32,7 +32,7 @@ async function deleteBookmark(commentid) {
 
 /*북마크 생성(서버)*/
 async function postBookmark(id, userseq) {
-  const response = fetch("http://localhost:9090/api/comment/createComment", {
+  const response = fetch("http://10.100.2.80:9090/api/comment/createComment", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
