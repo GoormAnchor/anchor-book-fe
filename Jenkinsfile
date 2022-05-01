@@ -42,10 +42,11 @@ pipeline {
         stage('Push Docker') {
             steps {
                 echo 'Push Docker'
-
-                docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/anchor-book-be', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
-                    dockerImage.push("${currentBuild.number}")
-                    dockerImage.push("latest")
+                script {
+                    docker.withRegistry('https://438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/anchor-book-be', 'ecr:ap-northeast-2:anchor-ecr-credentials') {
+                        dockerImage.push("${currentBuild.number}")
+                        dockerImage.push("latest")
+                    }
                 }
 
             }
@@ -64,11 +65,11 @@ pipeline {
                     branch: 'main'
 
                 sh "sed -i 's/my-app:.*\$/my-app:${currentBuild.number}/g' deployment.yaml"
-                sh "git add deployment.yaml"
-                sh "git commit -m '[UPDATE] my-app ${currentBuild.number} image versioning'"
-                sshagent(credentials: ['{k8s-manifest repository credential ID}']) {
-                    sh "git remote set-url origin git@github.com:best-branch/k8s-manifest.git"
-                    sh "git push -u origin master"
+                sh "git add custom-nginx.yaml"
+                sh "git commit -m 'UPDATE custom-nginx ${currentBuild.number} image versioning'"
+                sshagent(credentials: ['anchor-repo-credentials']) {
+                    sh "git remote set-url origin git@github.com:GoormAnchor/anchor-k8s-deploy.git"
+                    sh "git push -u origin main"
                 }
             }
             post {
