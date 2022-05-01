@@ -10,7 +10,7 @@ document.write("data = " + data);
 function getLoginUerInfo(token) {
   console.log(token);
   var bearer = "Bearer " + token;
-  const response = fetch("http://10.100.1.156:8080/api/v1/users", {
+  const response = fetch("http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/v1/users", {
     method: "GET",
     headers: {
       Authorization: bearer,
