@@ -43,8 +43,8 @@ pipeline {
             steps {
                 echo 'Push Docker'
                 withDockerRegistry([ credentialsId: registryCredential, url: "" ]) {
-                    sh "docker push $438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
-                    sh "docker push $438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
+                    sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:${currentBuild.number}"
+                    sh "docker push 438282170065.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest"
                 }
             }
             post {
