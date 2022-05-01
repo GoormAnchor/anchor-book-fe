@@ -1,6 +1,9 @@
 /* fetch로 책 정보 받아오기 */
 function getBook(id) {
-  const response = fetch("http://10.100.2.80:9090.ap-northeast-2.elb.amazonaws.com/api/book/find/id?id=" + id);
+  const response = fetch(
+    "http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/book/find/id?id=" +
+      id
+  );
   return response.then((res) => res.json());
 }
 

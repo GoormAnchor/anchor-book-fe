@@ -23,7 +23,8 @@ button.addEventListener("click", async () => {
 /*북마크 삭제(서버) */
 async function deleteBookmark(commentid) {
   const response = fetch(
-    "http://10.100.2.80/api/comment/delete/" + commentid,
+    "http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/comment/delete/" +
+      commentid,
     {
       method: "DELETE",
     }
@@ -32,17 +33,20 @@ async function deleteBookmark(commentid) {
 
 /*북마크 생성(서버)*/
 async function postBookmark(id, userseq) {
-  const response = fetch("http://10.100.2.80:9090/api/comment/createComment", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      user_seq: userseq,
-      content: null,
-      book_id: id,
-    }),
-  });
+  const response = fetch(
+    "http://k8s-default-backendi-a3ad399a4e-1150466428.ap-northeast-2.elb.amazonaws.com/api/comment/createComment",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_seq: userseq,
+        content: null,
+        book_id: id,
+      }),
+    }
+  );
 
   return response.then((res) => res.json());
 }
