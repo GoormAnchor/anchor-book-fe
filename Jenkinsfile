@@ -4,7 +4,7 @@ pipeline {
     environment {
         imagename = "custom-nginx"
         registryCredential = 'anchor-ecr-credentials'
-        dockerImage = ''
+        dockerImage = "custom-nginx"
     }
 
     stages {
